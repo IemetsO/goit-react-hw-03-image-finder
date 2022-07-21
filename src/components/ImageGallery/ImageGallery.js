@@ -18,7 +18,7 @@ class ImageGallery extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.searchImage !== this.props.searchImage) {
-      this.setState({ page: 1, image: null});
+      this.setState({ page: 1, hits: []});
     }
     if (
       prevProps.searchImage !== this.props.searchImage ||
