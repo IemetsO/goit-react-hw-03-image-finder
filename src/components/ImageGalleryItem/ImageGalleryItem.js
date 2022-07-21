@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import '../styles.css';
 
-const ImageGalleryItem = ({id, src}) => {
+const ImageGalleryItem = ({ src, onClick}) => {
     return (
-        <li className="ImageGalleryItem">
+        <li className="ImageGalleryItem" onClick={onClick}>
   <img className="ImageGalleryItem-image" src={src} alt="Зображення" />
 </li>
     );
@@ -10,3 +12,8 @@ const ImageGalleryItem = ({id, src}) => {
   
   
   export default ImageGalleryItem;
+
+  ImageGalleryItem.propTypes = {
+    src: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
+  }
