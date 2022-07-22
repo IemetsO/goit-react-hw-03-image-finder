@@ -10,27 +10,27 @@ class Modal extends React.Component {
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
-  componentWillUnmount(){
-      window.removeEventListener("keydown", this.handleKeyDown);
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown);
   }
 
   handleKeyDown = e => {
     if (e.code === 'Escape') {
       this.props.onClose();
     }
-  }
+  };
 
-handleOverlay=(e) =>{
-    if (e.target === e.currentTarget){
-        this.props.onClose();
+  handleOverlay = e => {
+    if (e.target === e.currentTarget) {
+      this.props.onClose();
     }
-}
+  };
 
   render() {
     return createPortal(
       <div className="Overlay" onClick={this.handleOverlay}>
         <div className="Modal">
-        <img src={this.props.src} alt="зображення" />
+          <img src={this.props.src} alt="зображення" />
         </div>
       </div>,
       modalRoot
@@ -41,6 +41,6 @@ handleOverlay=(e) =>{
 export default Modal;
 
 Modal.propTypes = {
-    src: PropTypes.string.isRequired,
-    
-  }
+  src: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
